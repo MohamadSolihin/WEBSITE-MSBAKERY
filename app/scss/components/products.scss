@@ -1,0 +1,59 @@
+@use "../abstrack/" as *;
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+
+  @include mobile {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+.product-card {
+  padding: 3rem;
+  border-radius: $border-radius;
+  transition: box-shadow 0.3s ease;
+  -webkit-border-radius: $border-radius;
+  -moz-border-radius: $border-radius;
+  -ms-border-radius: $border-radius;
+  -o-border-radius: $border-radius;
+  -webkit-transition: box-shadow 0.3s ease;
+  -moz-transition: box-shadow 0.3s ease;
+  -ms-transition: box-shadow 0.3s ease;
+  -o-transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.2);
+  }
+
+  &__img {
+    position: relative;
+
+    .btn-wraper {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      -webkit-transition: opacity 0.5s ease;
+      -moz-transition: opacity 0.5s ease;
+      -ms-transition: opacity 0.5s ease;
+      -o-transition: opacity 0.5s ease;
+    }
+  }
+
+  &:hover &__img .btn-wraper {
+    opacity: 1;
+  }
+
+  &__price, &__name {
+    font-size: 2rem;
+    margin-top: 1rem;
+    text-align: center;
+  }
+}

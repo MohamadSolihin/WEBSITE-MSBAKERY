@@ -1,0 +1,196 @@
+@use "../abstrack/" as *;
+
+.hero {
+  background-color: $bg-linear;
+
+  .swiper {
+    height: 100vh;
+
+    @include tablet {
+      height: unset;
+    }
+
+    .hero__slide {
+      @include flex(center, center);
+      height: 100%;
+      padding: 0 2rem;
+      position: relative;
+
+      @include tablet {
+        padding: 12rem 2rem;
+      }
+
+      &__txt {
+        font-size: 14rem;
+        position: absolute;
+        top: 7%;
+        font-weight: 700;
+        color: $main-color;
+        text-shadow: 0px 4px 13px rgba(245, 71, 73, 0.4);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        -webkit-transition: opacity 0.5s ease;
+        -moz-transition: opacity 0.5s ease;
+        -ms-transition: opacity 0.5s ease;
+        -o-transition: opacity 0.5s ease;
+
+        @include tablet {
+          font-size: 9rem;
+          top: 14%;
+        }
+
+        @include mobile {
+          display: none;
+        }
+      }
+      &__img {
+        position: relative;
+
+        .btn {
+          position: absolute;
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity 0.5s ease;
+
+          @include mobile {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+
+        .btn-left {
+          left: 100%;
+          bottom: -3rem;
+
+          @include tablet {
+            left: 80%;
+          }
+
+          @include mobile {
+            position: relative;
+            bottom: unset;
+            left: unset;
+          }
+        }
+
+        .btn-right {
+          right: 100%;
+
+          @include mobile {
+            position: relative;
+            right: unset;
+          }
+        }
+      }
+    }
+
+    .swiper-slide {
+      img {
+        transform: scale(0.4);
+        transform-origin: right bottom;
+        transition: transform 0.6s ease;
+        -webkit-transform: scale(0.4);
+        -moz-transform: scale(0.4);
+        -ms-transform: scale(0.4);
+        -o-transform: scale(0.4);
+        -webkit-transition: transform 0.6s ease;
+        -moz-transition: transform 0.6s ease;
+        -ms-transition: transform 0.6s ease;
+        -o-transition: transform 0.6s ease;
+
+        @include mobile {
+          transform: scale(1);
+          -webkit-transform: scale(1);
+          -moz-transform: scale(1);
+          -ms-transform: scale(1);
+          -o-transform: scale(1);
+        }
+      }
+      &-active,
+      &-duplicate-prev {
+        img {
+          transform: scale(0.4);
+          -webkit-transform: scale(0.4);
+          -moz-transform: scale(0.4);
+          -ms-transform: scale(0.4);
+          -o-transform: scale(0.4);
+
+          @include mobile {
+            transform: scale(1);
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+            -ms-transform: scale(1);
+            -o-transform: scale(1);
+          }
+        }
+      }
+      &-active {
+        img {
+          transform-origin: left bottom;
+        }
+      }
+
+      &.swiper-slide-next {
+        .hero__slide__img {
+          @include flex(center, center);
+
+          @include mobile {
+            display: block;
+          }
+        }
+
+        .hero__slide__txt {
+          opacity: 1;
+        }
+
+        img {
+          transform-origin: center;
+          transform: scale(1.4);
+          -webkit-transform: scale(1.4);
+          -moz-transform: scale(1.4);
+          -ms-transform: scale(1.4);
+          -o-transform: scale(1.4);
+
+          @include mobile {
+            transform: scale(1);
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+            -ms-transform: scale(1);
+            -o-transform: scale(1);
+          }
+        }
+
+        button {
+          opacity: 1;
+          visibility: visible;
+          transition: opacity 0.5s ease, box-shadow 0.3s ease,
+            transform 0.3s ease;
+          z-index: 98;
+          -webkit-transition: opacity 0.5s ease, box-shadow 0.3s ease,
+            transform 0.3s ease;
+          -moz-transition: opacity 0.5s ease, box-shadow 0.3s ease,
+            transform 0.3s ease;
+          -ms-transition: opacity 0.5s ease, box-shadow 0.3s ease,
+            transform 0.3s ease;
+          -o-transition: opacity 0.5s ease, box-shadow 0.3s ease,
+            transform 0.3s ease;
+        }
+      }
+    }
+
+    .swiper-pagination-bullet {
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+
+      &-active {
+        background-color: $main-color;
+      }
+
+      @include mobile {
+        width: 5px;
+        height: 5px;
+      }
+    }
+  }
+}

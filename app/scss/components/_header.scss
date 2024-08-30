@@ -19,8 +19,8 @@ header {
 
   &.shrink {
     height: $header-shrink-height;
-    background-origin: $body-bg;
-    box-shadow: rgba(100, 100, 111, 0.2), 0px 7px 29px, 0px;
+    background-color: $body-bg;
+    box-shadow: 0px 7px 29px rgba(100, 100, 111, 0.2) !important;
 
     @include mobile {
       height: $header-mobile-shrink-height;
